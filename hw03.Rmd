@@ -5,7 +5,7 @@ date: "29th September, 2018"
 output: github_document
 ---
 
-##### Bring rectangular data in
+### Bring rectangular data in
 
 * `dplyr` is my data manipulation tool
 * `ggplot2` is my visualization tool
@@ -20,9 +20,7 @@ library(gridBase)
 library(gridExtra)
 ```
 
-#### The Assighment
-
-##### Task menu 1
+### Task menu 1
 
 **Get the maximum and minimum of GDP per capita for all continents.**
 
@@ -57,21 +55,23 @@ mplot <- ggplot(mdata,aes(continent,value,fill = variable )) +
   scale_fill_manual(values = c("#CC6666","#9999CC")) +
   #scale the data to make the graph readable
   scale_y_log10() +
-  labs(x = "Continent", y = "Value", title = "Minimum and maximum gdpPercap for each continent")
+  coord_flip() +
+  labs(x = "Continent", y = "Value")
 
 tt <- ttheme_default(base_size = 12,
                      colhead=list(fg_params = list(parse=TRUE)))
 mdata_table <- tableGrob(mdata,rows = NULL,theme = tt)
 
 grid.arrange(mdata_table, mplot,
-             as.table = TRUE,nrow = 1)
+             as.table = TRUE,nrow = 1,
+             top = "Minimum and maximum gdpPercap for each continent")
 
 ```
 
 
 
 
-##### Task menu 2
+### Task menu 2
 
 **Look at the spread of GDP per capita within the continents.**
 
@@ -108,7 +108,7 @@ grid.arrange(spread_GDP_plot, spreadGDPtable,
 From this graph, we can notice that the difference between the maximum GDP per capita and minimum GDP per capita is high in Asia, which might be the reason that the standard deviation is higher than mean GDP per capita in Asia. For situation in Oceania, the value of GDP per capita performed in a opposite way, which is reasonable according to our previous explaination.
 
 
-##### Task menu 3
+### Task menu 3
 
 **Compute a trimmed mean of life expectancy for different years. Or a weighted mean, weighting by population. Just try something other than the plain vanilla mean.**
 
@@ -133,7 +133,7 @@ weighed %>%
        title = "Changing in weighted mean of life expectancy for different years")
 ```
 
-##### Task menu 4
+### Task menu 4
 
 **How is life expectancy changing over time on different continents**
 
@@ -196,7 +196,7 @@ ggplot(change5,aes(year,change,color = continent)) +
 
 It can be noticed that the life expectancy keeps increasing for most of continents over years except for Africa, which has a little decrease after the year of 2000.
 
-##### Task menu 5
+### Task menu 5
 
 **Report the absolute and/or relative abundance of countries with low life expectancy over time by continent: Compute some measure of worldwide life expectancy - you decide - a mean or median or some other quantile or perhaps your current age. Then determine how many countries on each continent have a life expectancy less than this benchmark, for each year**
 
@@ -261,7 +261,7 @@ lowercountry %>%
 ```
 
 
-##### Task menu 6
+### Task menu 6
 
 **Find countries with interesting stories. Open-ended and, therefore, hard. Promising but unsuccessful attempts are encouraged. This will generate interesting questions to follow up on in class.**
 
@@ -315,12 +315,12 @@ lifeExphighorlow %>%
 ```
 
 
-##### But I want to do more
+### But I want to do more
 
 Getting table and figure side-by-side, Please check [task menu 1](#Task menu 1) , also [task menu 2](#Task menu 2)
 For [nice fancy table](#Task menu 1), Please check task menu 1
 
-##### References
+### References
 
 [Displaying tables as grid graphics](https://cran.r-project.org/web/packages/gridExtra/vignettes/tableGrob.html)
 

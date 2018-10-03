@@ -317,8 +317,8 @@ lifeExphighorlow %>%
 
 ### But I want to do more
 
-Getting table and figure side-by-side, Please check [task menu 1](#Task menu 1) , also [task menu 2](#Task menu 2)
-For [nice fancy table](#Task menu 1), Please check task menu 1
+Getting table and figure side-by-side, Please check [task menu 1](# Task menu 1) , also [task menu 2](# Task menu 2)
+For [nice fancy table](# Task menu 1), Please check task menu 1
 
 ### References
 
